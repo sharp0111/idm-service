@@ -3,10 +3,11 @@ import requests
 
 class VendorService:
 
-    _vendorUrl = "https://shazam.p.rapidapi.com"
-    _locale = "en-US"
-    _XRapidAPIHost = "shazam.p.rapidapi.com"
-    _XRapidAPIKey = "d63ad138d7mshcce2e1a50baf88ep182504jsne40f42ff497a"
+    def __init__(self, vendorUrl, locale, vendorApiHost, vendorApiKey):
+        self._vendorUrl = vendorUrl
+        self._locale = locale
+        self._XRapidAPIHost = vendorApiHost
+        self._XRapidAPIKey = vendorApiKey
 
     def search(self, term):
         params = {"term": term, "locale": self._locale}

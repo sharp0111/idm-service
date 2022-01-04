@@ -1,10 +1,12 @@
 from flask import Flask, request
 
+from config.config import Config
 from api.route import VendorService
 
 app = Flask(__name__)
 
-vendorService = VendorService()
+vendorService = VendorService(
+    Config.VENDOR_URL, Config.LOCALE, Config.X_RAPID_API_HOST, Config.X_RAPID_API_KEY)
 
 
 @app.route("/")
