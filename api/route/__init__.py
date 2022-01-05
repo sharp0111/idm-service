@@ -11,7 +11,7 @@ class VendorService:
         self.x_rapid_api_host = vendor_api_host
         self.x_rapid_api_key = vendor_api_key
 
-    def search(self: str, term: str):
+    def search(self, term: str):
         """Search"""
         params = {"term": term, "locale": self.locale}
         headers = {"X-RapidAPI-Host": self.x_rapid_api_host,
