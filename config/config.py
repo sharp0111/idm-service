@@ -1,3 +1,4 @@
+"""Configuration"""
 from os import environ, path
 from dotenv import load_dotenv
 
@@ -6,6 +7,7 @@ load_dotenv(path.join(basedir, ".env"))
 
 
 class Config:
+    """Configuration class"""
     VENDOR_URL = environ.get("VENDOR_URL")
     LOCALE = environ.get("LOCALE")
     X_RAPID_API_HOST = environ.get("X_RAPID_API_HOST")

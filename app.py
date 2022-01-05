@@ -1,3 +1,4 @@
+"""APP"""
 from flask import Flask, request
 
 from config.config import Config
@@ -11,9 +12,11 @@ vendorService = VendorService(
 
 @app.route("/")
 def hello_world():
+    """Hello World"""
     return "<p>Hello, World!</p>"
 
 
 @app.route("/search", methods=["GET"])
 def search():
+    """Search"""
     return vendorService.search(request.args)
