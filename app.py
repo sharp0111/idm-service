@@ -1,5 +1,6 @@
 """APP"""
 from flask import Flask, request
+import requests
 
 from config.config import Config
 from api.route import VendorService
@@ -20,3 +21,9 @@ def hello_world():
 def search():
     """Search"""
     return vendorService.search(request.args)
+
+
+@app.route("/auto-complete", methods=["GET"])
+def auto_complete():
+    """Auto-Complete"""
+    return vendorService.auto_complete(request.args)
