@@ -26,3 +26,9 @@ def search():
 def auto_complete():
     """Auto-Complete"""
     return vendorService.auto_complete(request.args)
+
+
+@app.route("/songs/details", methods=["GET"])
+def get_song_details():
+    """GET song details"""
+    return vendorService.get_song_details(request.args)
