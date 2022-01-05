@@ -1,6 +1,5 @@
 """APP"""
 from flask import Flask, request
-import requests
 
 from config.config import Config
 from api.route import VendorService
