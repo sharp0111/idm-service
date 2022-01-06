@@ -23,6 +23,12 @@ def auto_complete():
 
 
 @app.route("/songs/details", methods=["GET"])
-def get_song_details():
+def fetch_song_details():
     """GET song details"""
-    return vendorService.get_song_details(request.args)
+    return vendorService.fetch_song_details(request.args)
+
+
+@app.route("/songs/recommendations", methods=["GET"])
+def fetch_song_recommendations():
+    """GET song recommendations"""
+    return vendorService.fetch_song_recommendations(request.args)
