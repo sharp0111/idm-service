@@ -14,7 +14,7 @@ class VendorService:
     def search(self, term: str):
         """Search"""
         term_param = term.get("term")
-        params = self.__get_params(term_param)
+        params = {"term": term_param, "locale": self.locale}
         headers = self.__get_headers()
         res = requests.get(self.vendor_url + "/search",
                            headers=headers, params=params)
@@ -24,7 +24,7 @@ class VendorService:
     def auto_complete(self, term: str):
         """Auto-Complete"""
         term_param = term.get("term")
-        params = self.__get_params(term_param)
+        params = {"term": term_param, "locale": self.locale}
         headers = self.__get_headers()
         res = requests.get(self.vendor_url + "/auto-complete",
                            headers=headers, params=params)
@@ -40,10 +40,6 @@ class VendorService:
                            headers=headers, params=params)
         print(res)
         return res.json()
-
-    def __get_params(self, term: str):
-        """Get Params"""
-        return {"term": term, "locale": self.locale}
 
     def __get_headers(self):
         """Get Headers"""
