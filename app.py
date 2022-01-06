@@ -44,3 +44,9 @@ def fetch_song_artist_top_tracks():
 def fetch_song_count():
     """Get total times the specific song is detected by using …/songs/detect endpoint"""
     return vendorService.fetch_song_count(request.args)
+
+
+@app.route("/charts/list", methods=["GET"])
+def fetch_chart_list():
+    """List all available charts by cities, countries, and genres"""
+    return vendorService.fetch_chart_list()
