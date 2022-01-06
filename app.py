@@ -50,3 +50,9 @@ def fetch_song_count():
 def fetch_chart_list():
     """List all available charts by cities, countries, and genres"""
     return vendorService.fetch_chart_list()
+
+
+@app.route("/charts/track", methods=["GET"])
+def fetch_chart_track():
+    """Get all popular songs in specific chart"""
+    return vendorService.fetch_chart_track(request.args)
