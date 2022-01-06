@@ -56,6 +56,15 @@ class VendorService:
                            headers=headers, params=params)
         return res.json()
 
+    def fetch_song_count(self, req):
+        """Get total times the specific song is detected by using …/songs/detect endpoint"""
+        key_param = req.get("key")
+        params = {"key": key_param}
+        headers = self.__get_headers()
+        res = requests.get(self.vendor_url + "/songs/get-count",
+                           headers=headers, params=params)
+        return res.json()
+
     def __get_headers(self):
         """Get Headers"""
         return {"X-RapidAPI-Host": self.x_rapid_api_host,

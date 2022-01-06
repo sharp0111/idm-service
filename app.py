@@ -38,3 +38,9 @@ def fetch_song_recommendations():
 def fetch_song_artist_top_tracks():
     """List top tracks of specific artist"""
     return vendorService.fetch_song_artist_top_tracks(request.args)
+
+
+@app.route("/songs/count", methods=["GET"])
+def fetch_song_count():
+    """Get total times the specific song is detected by using …/songs/detect endpoint"""
+    return vendorService.fetch_song_count(request.args)
