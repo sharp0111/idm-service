@@ -12,23 +12,29 @@ vendorService = VendorService(
 
 @app.route("/search", methods=["GET"])
 def search():
-    """Search"""
+    """Search for songs, artists that match input term"""
     return vendorService.search(request.args)
 
 
 @app.route("/auto-complete", methods=["GET"])
 def auto_complete():
-    """Auto-Complete"""
+    """Get suggestions by word or phrase"""
     return vendorService.auto_complete(request.args)
 
 
 @app.route("/songs/details", methods=["GET"])
 def fetch_song_details():
-    """GET song details"""
+    """Get details information of specific song"""
     return vendorService.fetch_song_details(request.args)
 
 
 @app.route("/songs/recommendations", methods=["GET"])
 def fetch_song_recommendations():
-    """GET song recommendations"""
+    """List related ones to a specific song"""
     return vendorService.fetch_song_recommendations(request.args)
+
+
+@app.route("/songs/artist-top-tracks", methods=["GET"])
+def fetch_song_artist_top_tracks():
+    """List top tracks of specific artist"""
+    return vendorService.fetch_song_artist_top_tracks(request.args)

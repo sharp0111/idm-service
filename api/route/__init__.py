@@ -12,7 +12,7 @@ class VendorService:
         self.x_rapid_api_key = vendor_api_key
 
     def search(self, req):
-        """Search"""
+        """Search for songs, artists that match input term"""
         term_param = req.get("term")
         params = {"term": term_param, "locale": self.locale}
         headers = self.__get_headers()
@@ -21,7 +21,7 @@ class VendorService:
         return res.json()
 
     def auto_complete(self, req):
-        """Auto-Complete"""
+        """Get suggestions by word or phrase"""
         term_param = req.get("term")
         params = {"term": term_param, "locale": self.locale}
         headers = self.__get_headers()
@@ -30,7 +30,7 @@ class VendorService:
         return res.json()
 
     def fetch_song_details(self, req):
-        """GET Song Details"""
+        """Get details information of specific song"""
         key_param = req.get("key")
         params = {"key": key_param, "locale": self.locale}
         headers = self.__get_headers()
@@ -39,11 +39,20 @@ class VendorService:
         return res.json()
 
     def fetch_song_recommendations(self, req):
-        """List related ones to a specific song."""
+        """List related ones to a specific song"""
         key_param = req.get("key")
         params = {"key": key_param, "locale": self.locale}
         headers = self.__get_headers()
         res = requests.get(self.vendor_url + "/songs/list-recommendations",
+                           headers=headers, params=params)
+        return res.json()
+
+    def fetch_song_artist_top_tracks(self, req):
+        """List top tracks of specific artist"""
+        id_param = req.get("id")
+        params = {"id": id_param, "locale": self.locale}
+        headers = self.__get_headers()
+        res = requests.get(self.vendor_url + "/songs/list-artist-top-tracks",
                            headers=headers, params=params)
         return res.json()
 
