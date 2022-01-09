@@ -46,6 +46,13 @@ def fetch_song_count():
     return vendorService.fetch_song_count(request.args)
 
 
+@app.route("/songs/detect", methods=["POST"])
+def detect_song():
+    """Detect songs from raw sound data."""
+    # The raw sound data must be 44100Hz, 1 channel (Mono), signed 16 bit PCM
+    return vendorService.detect_song(request)
+
+
 @app.route("/charts/list", methods=["GET"])
 def fetch_chart_list():
     """List all available charts by cities, countries, and genres"""

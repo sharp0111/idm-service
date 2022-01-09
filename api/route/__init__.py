@@ -65,6 +65,16 @@ class VendorService:
                            headers=headers, params=params)
         return res.json()
 
+    def detect_song(self, req):
+        """Detect songs from raw sound data."""
+        # The raw sound data must be 44100Hz, 1 channel (Mono), signed 16 bit PCM
+        print("HItting POST")
+        payload = req.data
+        headers = self.__get_headers()
+        res = requests.post(self.vendor_url + "/songs/v2/detect",
+                            data=payload, headers=headers)
+        return res.json()
+
     def fetch_chart_list(self):
         """List all available charts by cities, countries, and genres"""
         headers = self.__get_headers()
