@@ -48,8 +48,9 @@ def fetch_song_count():
 
 @app.route("/songs/detect", methods=["POST"])
 def detect_song():
-    """Detect songs from raw sound data."""
-    # The raw sound data must be 44100Hz, 1 channel (Mono), signed 16 bit PCM
+    """Detect songs from raw sound data.
+    The raw sound data must be 44100Hz, 1 channel (Mono), signed 16 bit PCM
+    """
     return vendorService.detect_song(request)
 
 

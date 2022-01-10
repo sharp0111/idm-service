@@ -66,8 +66,9 @@ class VendorService:
         return res.json()
 
     def detect_song(self, req):
-        """Detect songs from raw sound data."""
-        # The raw sound data must be 44100Hz, 1 channel (Mono), signed 16 bit PCM
+        """Detect songs from raw sound data.
+        The raw sound data must be 44100Hz, 1 channel (Mono), signed 16 bit PCM
+        """
         print("HItting POST")
         payload = req.data
         headers = self.__get_headers()
