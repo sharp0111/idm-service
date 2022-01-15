@@ -11,6 +11,11 @@ class VendorService:
         self.x_rapid_api_host = vendor_api_host
         self.x_rapid_api_key = vendor_api_key
 
+    def __get_headers(self):
+        """Header Parameters"""
+        return {"X-RapidAPI-Host": self.x_rapid_api_host,
+                "X-RapidAPI-Key": self.x_rapid_api_key}
+
     def fetch_song_artist_top_tracks(self, req, locale):
         """List top tracks of specific artist"""
         # The id field inside artists json object returned from …/songs/detect or …/search endpoint
@@ -105,8 +110,3 @@ class VendorService:
         res = requests.get(self.vendor_url + "/auto-complete",
                            headers=headers, params=params)
         return res.json()
-
-    def __get_headers(self):
-        """Header Parameters"""
-        return {"X-RapidAPI-Host": self.x_rapid_api_host,
-                "X-RapidAPI-Key": self.x_rapid_api_key}
