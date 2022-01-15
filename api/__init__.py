@@ -1,9 +1,9 @@
-"""Main Route File"""
+"""ApiService"""
 import requests
 
 
-class VendorService:
-    """ VendorService """
+class ApiService:
+    """ ApiService """
 
     def __init__(self, vendor_url: str, vendor_api_host: str, vendor_api_key: str):
         self.vendor_url = vendor_url
