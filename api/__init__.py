@@ -1,5 +1,4 @@
 """Main Route File"""
-from threading import local
 import requests
 
 
