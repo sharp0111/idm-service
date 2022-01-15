@@ -10,5 +10,6 @@ class Config:
     """Configuration class"""
     VENDOR_URL = environ.get("VENDOR_URL")
     LOCALE = environ.get("LOCALE")
+    TIMEZONE = environ.get("TIMEZONE")
     X_RAPID_API_HOST = environ.get("X_RAPID_API_HOST")
     X_RAPID_API_KEY = environ.get("X_RAPID_API_KEY")

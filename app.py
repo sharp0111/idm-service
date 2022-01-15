@@ -7,7 +7,7 @@ from api.route import VendorService
 app = Flask(__name__)
 
 vendorService = VendorService(
-    Config.VENDOR_URL, Config.LOCALE, Config.X_RAPID_API_HOST, Config.X_RAPID_API_KEY)
+    Config.VENDOR_URL, Config.LOCALE, Config.TIMEZONE, Config.X_RAPID_API_HOST, Config.X_RAPID_API_KEY)
 
 
 @app.route("/search", methods=["GET"])
