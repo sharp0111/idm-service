@@ -1,8 +1,8 @@
 """APP"""
 from flask import Flask, request
 
-from config.config import Config
-from api.route import VendorService
+from config import Config
+from api import VendorService
 
 __locale = Config.LOCALE
 __timezone = Config.TIMEZONE
