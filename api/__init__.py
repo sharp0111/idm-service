@@ -17,7 +17,7 @@ class ApiService:
 
     def fetch_song_artist_top_tracks(self, req, locale):
         """List top tracks of specific artist"""
-        # The id field inside artists json object returned from …/songs/detect or …/search endpoint
+        # The id field inside artists json object returned from …/songs/idm or …/search endpoint
         id_param = req.get("id")
         params = {"id": id_param, "locale": locale}
         headers = self.__get_headers()
@@ -27,7 +27,7 @@ class ApiService:
 
     def fetch_song_recommendations(self, req, locale):
         """List related ones to a specific song"""
-        # The key field returned from …/songs/detect or …/search endpoint
+        # The key field returned from …/songs/idm or …/search endpoint
         key_param = req.get("key")
         params = {"key": key_param, "locale": locale}
         headers = self.__get_headers()
@@ -35,11 +35,11 @@ class ApiService:
                            headers=headers, params=params)
         return res.json()
 
-    def detect_song(self, req, timezone, locale):
+    def idm(self, req, timezone, locale):
         """Detect songs from raw sound data.
         The raw sound data must be 44100Hz, 1 channel (Mono), signed 16 bit PCM
         """
-        print("HItting POST")
+        print("Hitting POST")
         payload = req.data
         headers = self.__get_headers()
         params = {"timezone": timezone, "locale": locale}
@@ -49,7 +49,7 @@ class ApiService:
 
     def fetch_song_details(self, req, locale):
         """Get details information of specific song"""
-        # The key field returned from …/songs/detect or …/search endpoint
+        # The key field returned from …/songs/idm or …/search endpoint
         key_param = req.get("key")
         params = {"key": key_param, "locale": locale}
         headers = self.__get_headers()
@@ -58,8 +58,8 @@ class ApiService:
         return res.json()
 
     def fetch_song_count(self, req):
-        """Get total times the specific song is detected by using …/songs/detect endpoint"""
-        # The key field returned from …/songs/detect or …/search endpoint
+        """Get total times the specific song is detected by using …/songs/idm endpoint"""
+        # The key field returned from …/songs/idm or …/search endpoint
         key_param = req.get("key")
         params = {"key": key_param}
         headers = self.__get_headers()
