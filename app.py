@@ -1,5 +1,6 @@
 """APP"""
 from flask import Flask, request
+from flask_cors import CORS
 
 from config import Config
 from api import ApiService
@@ -11,6 +12,7 @@ apiService = ApiService(
     Config.VENDOR_URL, Config.X_RAPID_API_HOST, Config.X_RAPID_API_KEY)
 
 app = Flask(__name__)
+CORS(app, origins=['http://localhost:3000'])
 
 
 @app.route("/songs/artist-top-tracks", methods=["GET"])
