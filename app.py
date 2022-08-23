@@ -27,12 +27,12 @@ def fetch_song_recommendations():
     return apiService.fetch_song_recommendations(request.args, __locale)
 
 
-@app.route("/songs/idm", methods=["POST"])
-def idm():
+@app.route("/songs/detect", methods=["POST"])
+def detect():
     """Detect songs from raw sound data.
     The raw sound data must be 44100Hz, 1 channel (Mono), signed 16 bit PCM
     """
-    return apiService.idm(request, __timezone, __locale)
+    return apiService.detect(request, __timezone, __locale)
 
 
 @app.route("/songs/details", methods=["GET"])
@@ -43,7 +43,7 @@ def fetch_song_details():
 
 @app.route("/songs/count", methods=["GET"])
 def fetch_song_count():
-    """Get total times the specific song is detected by using …/songs/idm endpoint"""
+    """Get total times the specific song is detected by using …/songs/detect endpoint"""
     return apiService.fetch_song_count(request.args)
 
 
