@@ -3,7 +3,7 @@ from flask import Flask, request
 from flask_cors import CORS
 
 from config import Config
-from api import ApiService
+from api.service import ApiService
 
 __locale = Config.LOCALE
 __timezone = Config.TIMEZONE
